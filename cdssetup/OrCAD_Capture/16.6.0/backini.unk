@@ -1,0 +1,9 @@
+[Part Management]
+DemoConfiguration File=$CDSROOT\tools\Capture\Samples\DemoBENCHACC.DBC
+[Footprint Viewer Type]
+Type=Allegro
+[Allegro Footprints]
+Dir0=C:\OrCAD\OrCAD_16.6_Lite\share\pcb\pcb_lib\symbols
+[Symbol Selector Configured Libraries]
+Library0=$CDSROOT\Capture\Library\PSpice\source.olb
+Number of Configured Libraries=1
