@@ -1,8 +1,10 @@
+/*body tag is assigned visuals*/
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
 }
 
+/*textarea tag is assigned visuals*/
 textarea {
   background: transparent;
   border: none;
@@ -12,39 +14,47 @@ textarea {
   padding: 10px;
 }
 
+/*description class is assigned visuals*/
 .description {
   white-space: pre-wrap;
 }
 
+/*time-block class is assigned visuals*/
 .time-block {
   border-radius: 15px;
 }
 
+/*class class is assigned visuals*/
 .row {
   border-top: 1px solid white;
 }
 
+/*hour class is assigned visuals*/
 .hour {
   background-color: #ffffff;
   color: #000000;
   border-top: 1px dashed #000000;
 }
 
+/*past class is assigned visuals*/
 .past {
   background-color: #d3d3d3;
   color: white;
 }
 
+/*present class is assigned visuals*/
 .present {
   background-color: #ff6961;
   color: white;
 }
 
+/*future class is assigned visuals*/
 .future {
   background-color: #77dd77;
   color: white;
 }
 
+/*saveBtn class is assigned visuals*/
 .saveBtn {
   border-left: 1px solid black;
   border-top-right-radius: 15px;
@@ -53,6 +63,7 @@ textarea {
   color: white;
 }
 
+/*saveBtn class's hover pseudo-class is assigned transition*/
 .saveBtn i:hover {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
