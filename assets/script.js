@@ -35,6 +35,13 @@ function renderTimeBlocks() {
     var saveButton = $('<button></button>');
     var idiomaticSaveIcon = $('<i></i>');
 
+    var hourDivId = parseInt(hoursList[i].slice(0, -2));
+
+    var currentHour = dayjs();
+    currentHour = parseInt(currentHour.add(7, 'hour').format('h'));
+
+    var textareaDescription = localStorage.getItem('hour-' + hourDivId);
+
     idiomaticSaveIcon.addClass('fas fa-save');
     idiomaticSaveIcon.attr('aria-hidden', 'true');
 
@@ -43,15 +50,15 @@ function renderTimeBlocks() {
 
     textarea.addClass('col-8 col-md-10 description');
     textarea.attr('rows', '3');
+    
+    if (textareaDescription != null) {
+      textarea.text(textareaDescription);
+    }
 
     hourString.addClass('col-2 col-md-1 hour text-center py-3');
     hourString.text(`${hoursList[i]}`);
 
-    var hourDivId = parseInt(hoursList[i].slice(0, -2));
     hourDiv.attr('id', 'hour-' + hourDivId);
-
-    var currentHour = dayjs();
-    currentHour = parseInt(currentHour.subtract(10, 'hour').format('h'));
 
     if (hourDivId == currentHour) {
       hourDiv.addClass('row time-block present');
@@ -65,6 +72,7 @@ function renderTimeBlocks() {
         hourDiv.addClass('row time-block future');
       }
     }
+
     hourDiv.append(hourString);
     hourDiv.append(textarea);
     saveButton.append(idiomaticSaveIcon);
@@ -74,34 +82,20 @@ function renderTimeBlocks() {
   }
 }
 
+function saveToLocalStorage() {
+  var saveBtn = $('.saveBtn');
+
+  saveBtn.on('click', function() {
+    var timeBlockId = $(this).parent().attr('id');
+
+    var textarea = $(this).parent().find('.description').val();
+
+    localStorage.setItem(timeBlockId, textarea);
+  });
+}
+
 $(function () {
-
-
-
-
   renderTimeBlocks();
   renderCurrentDay();
-  
-
-  // TODO: Add a listener for click events on the save button. This code should
-  // use the id in the containing time-block as a key to save the user input in
-  // local storage. HINT: What does `this` reference in the click listener
-  // function? How can DOM traversal be used to get the "hour-x" id of the
-  // time-block containing the button that was clicked? How might the id be
-  // useful when saving the description in local storage?
-  //
-  // TODO: Add code to apply the past, present, or future class to each time
-  // block by comparing the id to the current hour. HINTS: How can the id
-  // attribute of each time-block be used to conditionally add or remove the
-  // past, present, and future classes? How can Day.js be used to get the
-  // current hour in 24-hour time?
-
-
-
-
-  //
-  // TODO: Add code to get any user input that was saved in localStorage and set
-  // the values of the corresponding textarea elements. HINT: How can the id
-  // attribute of each time-block be used to do this?
-
+  saveToLocalStorage();
 });
