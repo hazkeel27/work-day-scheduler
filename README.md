@@ -30,7 +30,7 @@ The purpose of this project is to have a scheduler which allows the user to save
 
 The following image includes the screenshot of the initial page reloads of the application.
 
-
+![main-page-screenshot](https://github.com/hazkeel27/work-day-scheduler/assets/55248924/e09e4296-75c8-49d1-8789-d8db071fa151)
 
 ## Credits
 
